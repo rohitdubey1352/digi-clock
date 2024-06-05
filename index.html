@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DigiClock.io</title>
+</head>
+
+<body>
+
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: monospace;
+        }
+
+        body {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            text-align: center;
+            margin: auto;
+            background: #232323;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .clockBody {
+            position: relative;
+            width: 34rem;
+            max-width: 100%;
+            height: 14rem;
+            border: .2rem solid #1af1d4;
+            border-radius: .6rem;
+            background: #1af1d410;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 1rem;
+            box-shadow: 0 12px 4px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .clockBody::before {
+            content: '';
+            position: absolute;
+            bottom: -.7rem;
+            left: 50%;
+            transform: translate(-50%);
+            width: 80%;
+            height: .6rem;
+            background: #1af1d4;
+            border-radius: .6rem;
+            box-shadow: 0 10px 36px 2px #1af1d4;
+        }
+
+        h2 {
+            color: aliceblue;
+            font: 4rem sans-serif;
+            letter-spacing: .12rem;
+            font-weight: 300;
+            text-transform: uppercase;
+        }
+
+        p {
+            position: absolute;
+            bottom: 1rem;
+            left: 50%;
+            transform: translate(-50%);
+            color: aliceblue;
+        }
+    </style>
+
+
+    <section>
+        <div class="clockBody">
+            <div class="currentTime">
+                <h2 id="currTime"></h2>
+            </div>
+        </div>
+        <p>© 2024 Rohit Dubey, All Rights Reserved</p>
+    </section>
+
+    <script>
+
+        const showTime = () => {
+            const currTime = document.getElementById('currTime');
+            const currDate = new Date().toLocaleTimeString();
+            currTime.innerHTML = currDate;
+        }
+        showTime();
+
+        setInterval(() => {
+            showTime();
+        });
+
+    </script>
+
+
+</body>
+
+</html>
